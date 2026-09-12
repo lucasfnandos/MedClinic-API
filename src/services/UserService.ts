@@ -3,6 +3,7 @@ import { UsuarioMapper } from "../mappers/UsuarioMapper";
 import { UsuarioRole } from "../entities/User";
 import { hashPassword } from "../utils/hashPassword";
 import { UsuarioDto } from "../dtos/UsuarioDto";
+import { AppError } from "../types/AppError";
 
 export class UsuarioService {
   constructor(private repo: UsuarioRepository) {}
