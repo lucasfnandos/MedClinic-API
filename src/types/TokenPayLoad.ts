@@ -6,7 +6,7 @@ export interface TokenPayLoad{
 }
 
 declare global {
-    namespace express {
+    namespace Express {
         interface Request {
             usuario?: TokenPayLoad
         }
