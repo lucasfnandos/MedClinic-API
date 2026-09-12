@@ -6,9 +6,8 @@ import {
 } from 'typeorm';
 
 export enum UsuarioRole{
-    PACIENTE = "PACIENTE",
-    MEDICO = "MEDICO",
-    ADMIN = "ADMIN"
+    ATENDENTE = "ATENDENTE",
+    ADMINISTRADOR = "ADMIN"
 }
 
 @Entity("tb_usuarios")
@@ -28,7 +27,7 @@ export class Usuario{
     @Column({
         type: "enum",
         enum: UsuarioRole,
-        default: UsuarioRole.PACIENTE
+        default: UsuarioRole.ATENDENTE
     })
     role!: UsuarioRole
 
