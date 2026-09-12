@@ -1,19 +1,15 @@
 import { DataSource, Repository } from "typeorm";
 import { Usuario, UsuarioRole } from "../entities/User";
+import { CreateUserDto } from "../dtos/CreateUserDto";
 
-export class UsuarioRepository {
+export class UserRepository {
   private ormRepository: Repository<Usuario>;
   constructor(dataSource: DataSource) {
     this.ormRepository = dataSource.getRepository(Usuario);
   }
 
-  async create(nome: string, email: string, role: UsuarioRole, senhaHash: string): Promise<Usuario> {
-    const usuario = this.ormRepository.create({
-        nome,
-        email,
-        senha: senhaHash,
-        role: role
-    })
+  async create(userInfo: CreateUserDto): Promise<Usuario> {
+    const usuario = this.ormRepository.create(userInfo);
     
     return await this.ormRepository.save(usuario);
   }
