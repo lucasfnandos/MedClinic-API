@@ -1,8 +1,8 @@
 import { Usuario } from "../entities/User";
-import { UsuarioDto } from "../dtos/UsuarioDto";
+import { UserDto } from "../dtos/UserDto";
 
 export class UsuarioMapper {
-  static toDto(usuario: Usuario): UsuarioDto {
+  static toDto(usuario: Usuario): UserDto {
     return {
       id: usuario.id,
       nome: usuario.nome,
@@ -10,7 +10,7 @@ export class UsuarioMapper {
       criado_em: usuario.criado_em
     };
   }
-  static toDtoList(usuarios: Usuario[]): UsuarioDto[] {
+  static toDtoList(usuarios: Usuario[]): UserDto[] {
     return usuarios.map(usuario => this.toDto(usuario));
   }
 }
