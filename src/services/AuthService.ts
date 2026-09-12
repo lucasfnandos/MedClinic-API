@@ -1,6 +1,8 @@
 import { UsuarioMapper } from "../mappers/UsuarioMapper";
 import { UserRepository } from "../repositories/UserRepository";
 import { AppError } from "../types/AppError";
+import { LoginResponseDto } from "../dtos/LoginResponseDto";
+import { LoginDto } from "../dtos/LoginDto";
 
 
 export class AuthService {
