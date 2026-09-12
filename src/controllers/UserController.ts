@@ -10,7 +10,7 @@ export class UserController {
         try{
             const createUserDto = req.body as CreateUserDto;
 
-            const createUser = await this.service.criarUsuario(createUserDto);
+            const createUser = await this.service.createUser(createUserDto);
 
             return res.status(201).json(createUser);
             
@@ -22,9 +22,9 @@ export class UserController {
     async userProfile(req: Request, res: Response, next: NextFunction): Promise<Response | void> {
         try {
             if(!req.usuario) {
-                new AppError("Usuário não autenticado", 403);
+                throw new AppError("Usuário não autenticado", 403);
             }
-            const user = await this.service.listarUsuario(req.usuario.sub)
+            const user = await this.service.listUser(req.usuario.sub)
             return res.status(200).json(user);
         } catch(err) {
             next(err);
