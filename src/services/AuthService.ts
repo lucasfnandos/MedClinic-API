@@ -3,6 +3,8 @@ import { UserRepository } from "../repositories/UserRepository";
 import { AppError } from "../types/AppError";
 import { LoginResponseDto } from "../dtos/LoginResponseDto";
 import { LoginDto } from "../dtos/LoginDto";
+import { comparePassword } from "../utils/comparePassword";
+import { tokenBuilder } from "../utils/jwt";
 
 
 export class AuthService {
@@ -24,7 +26,5 @@ export class AuthService {
             token,
             user: UsuarioMapper.toDto(user)
         };
-
-
     }
 }
