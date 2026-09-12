@@ -21,4 +21,8 @@ export class UsuarioRepository {
   async findById(id: string): Promise<Usuario | null> {
     return await this.ormRepository.findOneBy({ id: id });
   }
+
+  async findByEmail(email: string): Promise<Usuario | null> {
+    return await this.ormRepository.findOneBy({ email: email });
+  }
 }

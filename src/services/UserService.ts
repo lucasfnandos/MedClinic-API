@@ -1,4 +1,4 @@
-import { UsuarioRepository } from "../repositories/User";
+import { UsuarioRepository } from "../repositories/UserRepository";
 import { UsuarioMapper } from "../mappers/UsuarioMapper";
 import { UsuarioRole } from "../entities/User";
 import { hashPassword } from "../utils/hashPassword";
