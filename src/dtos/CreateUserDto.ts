@@ -20,7 +20,7 @@ export class CreateUserDto {
     @IsNotEmpty({ message: 'A senha é obrigatória.' })
     @IsString()
     @MinLength(6, { message: 'A senha deve ter mais de 6 caracteres.' })
-    pwd!: string;
+    senha!: string;
 
     @IsOptional()
     @IsEnum(UsuarioRole, { message: 'A permissão deve ser ATENDENTE ou ADMIN.' })

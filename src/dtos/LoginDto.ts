@@ -6,5 +6,5 @@ export class LoginDto {
     email!: string
 
     @IsNotEmpty({ message: 'A senha é obrigatória.' })
-    pwd!: string
+    senha!: string
 }
