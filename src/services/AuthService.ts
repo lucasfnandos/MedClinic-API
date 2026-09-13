@@ -16,7 +16,7 @@ export class AuthService {
         if(!user) {
             throw new AppError("Credenciais inválidas!", 401);
         }
-        const pwdMatch = await comparePassword(loginInfo.pwd, user.senha);
+        const pwdMatch = await comparePassword(loginInfo.senha, user.senha);
         if(!pwdMatch) {
             throw new AppError("Credenciais inválidas!", 401);
         }
