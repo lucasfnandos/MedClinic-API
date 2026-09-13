@@ -26,4 +26,12 @@ export class UserService {
     }
     return UsuarioMapper.toDto(usuario);
   }
+
+  async listAllUsers(): Promise<UserDto[] | null> {
+    const usersList = await this.repo.findAll();
+    if(!usersList) {
+      throw new AppError("Nenhum usuário encontrado!", 400);
+    }
+    return UsuarioMapper.toDtoList(usersList);
+  }
 }

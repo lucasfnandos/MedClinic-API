@@ -21,4 +21,8 @@ export class UserRepository {
   async findByEmail(email: string): Promise<Usuario | null> {
     return await this.ormRepository.findOneBy({ email: email });
   }
+  
+  async findAll(): Promise<Usuario[] | null> {
+    return await this.ormRepository.find();
+  }
 }

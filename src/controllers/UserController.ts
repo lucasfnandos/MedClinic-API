@@ -30,4 +30,16 @@ export class UserController {
             next(err);
         }
     }
+
+    async list(req: Request, res: Response, next: NextFunction): Promise<Response | void> {
+        try {
+            if(!req.usuario) {
+                throw new AppError("Usuário não autenticado", 403);
+            }
+            const usersList = await this.service.listAllUsers();
+            return res.status(200).json(usersList);
+        } catch(err) {
+            next(err);
+        }
+    }
 }
