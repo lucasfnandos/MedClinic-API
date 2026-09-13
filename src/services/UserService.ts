@@ -1,6 +1,5 @@
 import { UserRepository } from "../repositories/UserRepository";
 import { UsuarioMapper } from "../mappers/UsuarioMapper";
-import { UsuarioRole } from "../entities/User";
 import { hashPassword } from "../utils/hashPassword";
 import { UserDto } from "../dtos/UserDto";
 import { CreateUserDto } from "../dtos/CreateUserDto";
@@ -15,8 +14,8 @@ export class UserService {
     if(emailExists) {
         throw new AppError('Email já cadastrado!', 409);
     }
-    const passHash = await hashPassword(userInfo.pwd);
-    const userSaved = await this.repo.create(userInfo);
+    const passHash = await hashPassword(userInfo.senha);
+    const userSaved = await this.repo.create({...userInfo, senha: passHash});
     return UsuarioMapper.toDto(userSaved);
   }
 
